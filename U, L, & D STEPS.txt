@@ -1,0 +1,72 @@
+U, L, & D STEPS
+_______________
+
+UI Design
+_________
+
+Welcome message
+Ask user 1 for their name
+Ask user 1 for their 5 ship placements
+  Ask for placement
+  Determine if it is a valid spot
+  Store
+  Clear
+Ask user 2 for their name
+Ask user 2 for their 5 ship placements
+  Ask for placement
+  Determine if it is a valid spot
+  Store
+  Clear
+Display grid of where user 1 has fired
+Ask user 1: Where would you like to fire on?
+  Verify a valid spot
+  Check results
+  Store shot
+  Clear
+Display the score (user 1: 2 ships left, user 2: 4 ships left)
+Repeat with user 2
+Loop until someone wins
+Print out winner's name and number of shots taken
+Wait for user to say they are done
+Exit
+
+Grid
+
+A1 A2 A3 O  A5
+B1 B2 B3 O  B5
+C1 C2 C3 X  C5
+D1 D2 D3 O  D5
+E1 E2 E3 X  E5
+
+O = miss
+X = hit
+
+Logic Design
+____________
+
+Clear display
+Enum
+Method: Ask for name
+Method: Get ship placement
+Method: Determine if valid spot for ship
+Storing ship info in: List per user?
+Storing shot info in: List per user?
+Method: Create the grid for each user
+Method: Print grid
+Method: Fire on opponent
+Method: Determine if a shot can be taken & outcome
+Method: Display score
+Method: Print winner and shots taken
+
+Data Design
+___________
+
+PlayerInfo
+  User's name - string
+  User's ship locations - List<GridSpot>
+  User's shot grid - List<GridSpot>
+
+GridSpot
+  SpotLetter - string
+  SpotNumber - int
+  Status - string (possible Enum)

@@ -93,7 +93,7 @@ namespace ShipBattle
         {
             PlayerInfoModel output = new PlayerInfoModel();
 
-            Console.WriteLine($"Lets set up {playerTitle}.");
+            Console.WriteLine($"Lets set up {playerTitle}");
 
             output.PlayerName = AskForPlayerName();
 

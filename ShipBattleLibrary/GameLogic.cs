@@ -194,25 +194,17 @@ namespace ShipBattleLibrary
 
         public static bool IdentifyShotResults(PlayerInfoModel player, string row, int column)
         {
-            if (ValidateShipLocation(player, row, column))
+            bool isAHit = false;
+
+            foreach (GridSpotModel ship in player.PlayerShipLocations)
             {
-                return true;
+                if (ship.SpotLetter.Equals(row) && ship.SpotNumber.Equals(column))
+                {
+                    isAHit = true;
+                }
             }
 
-            return false;
-
-        // TIM'S CODE
-        //    bool isAHit = false;
-
-        //    foreach (GridSpotModel ship in player.PlayerShipLocations)
-        //    {
-        //        if (ship.SpotLetter.Equals(row) && ship.SpotNumber.Equals(column))
-        //        {
-        //            isAHit = true;
-        //        }
-        //    }
-
-        //    return isAHit;
+            return isAHit;
         }
 
     }

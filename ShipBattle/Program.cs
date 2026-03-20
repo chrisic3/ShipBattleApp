@@ -19,12 +19,11 @@ namespace ShipBattle
             PlayerInfoModel player2 = UILogic.CreatePlayer("Player 2");
 
             PlayerInfoModel winner = null;
+            PlayerInfoModel currentPlayer = player1;
+            PlayerInfoModel opponent = player2;
 
             do
             {
-                PlayerInfoModel currentPlayer = player1;
-                PlayerInfoModel opponent = player2;
-
                 UILogic.DisplayShotGrid(currentPlayer);
 
                 UILogic.RecordPlayerShot(currentPlayer, opponent);

@@ -201,6 +201,7 @@ namespace ShipBattleLibrary
                 if (ship.SpotLetter.Equals(row) && ship.SpotNumber.Equals(column))
                 {
                     isAHit = true;
+                    ship.Status = GridSpotStatus.Sunk;
                 }
             }
 

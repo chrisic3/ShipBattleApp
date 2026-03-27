@@ -28,13 +28,21 @@ namespace ShipBattle
             do
             {
                 string shot = AskForShot();
-                (row, column) = GameLogic.SplitShotIntoRowAndColumn(shot);
-                isValidShot = GameLogic.ValidateShot(currentPlayer, row, column);
-
-                if (isValidShot == false)
+                try
                 {
-                    Console.WriteLine("Invalid selection. Please try again.");
+                    (row, column) = GameLogic.SplitShotIntoRowAndColumn(shot);
+                    isValidShot = GameLogic.ValidateShot(currentPlayer, row, column);
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                    isValidShot = false;
+                }
+
+                //if (isValidShot == false)
+                //{
+                //    Console.WriteLine("Invalid selection. Please try again.");
+                //}
             } while (isValidShot == false);
 
             bool isAHit = GameLogic.IdentifyShotResults(opponent, row, column);
@@ -125,12 +133,22 @@ namespace ShipBattle
                 Console.Write($"Where do you want to place ship number {player.PlayerShipLocations.Count + 1} (Ex. D4): ");
                 string location = Console.ReadLine();
 
-                bool isValid = GameLogic.PlaceShip(player, location);
+                bool isValid = false;
 
-                if (!isValid)
+                try
                 {
-                    Console.WriteLine("That was an invalid position. Please try again.");
+                    isValid = GameLogic.PlaceShip(player, location);
+
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error: {ex.Message}");
+                }
+
+                //if (!isValid)
+                //{
+                //    Console.WriteLine("That was an invalid position. Please try again.");
+                //}
             } while (player.PlayerShipLocations.Count < 5); // May make dynamic
         }
     }

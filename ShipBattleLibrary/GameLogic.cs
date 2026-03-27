@@ -83,7 +83,7 @@ namespace ShipBattleLibrary
             {
                 GridSpotModel ship = new GridSpotModel
                 {
-                    SpotLetter = row, // TODO: check when running for case
+                    SpotLetter = row,
                     SpotNumber = column,
                     Status = GridSpotStatus.Ship
                 };
@@ -138,7 +138,7 @@ namespace ShipBattleLibrary
 
             char[] shotChars = shot.ToCharArray();
 
-            row = shotChars[0].ToString();
+            row = shotChars[0].ToString().ToUpper();
             column = int.Parse(shotChars[1].ToString());
 
             return (row, column);

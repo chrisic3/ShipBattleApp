@@ -27,7 +27,7 @@ namespace ShipBattle
 
             do
             {
-                string shot = AskForShot();
+                string shot = AskForShot(currentPlayer);
                 try
                 {
                     (row, column) = GameLogic.SplitShotIntoRowAndColumn(shot);
@@ -120,9 +120,9 @@ namespace ShipBattle
             return output;
         }
 
-        private static string AskForShot()
+        private static string AskForShot(PlayerInfoModel player)
         {
-            Console.Write("Please enter your shot: ");
+            Console.Write($"{player.PlayerName}, please enter your shot: ");
             string output = Console.ReadLine();
 
             return output;
@@ -148,10 +148,10 @@ namespace ShipBattle
                     Console.WriteLine($"Error: {ex.Message}");
                 }
 
-                //if (!isValid)
-                //{
-                //    Console.WriteLine("That was an invalid position. Please try again.");
-                //}
+                if (!isValid)
+                {
+                    Console.WriteLine("That was an invalid position. Please try again.");
+                }
             } while (player.PlayerShipLocations.Count < 5); // May make dynamic
         }
     }

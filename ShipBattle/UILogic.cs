@@ -83,6 +83,9 @@ namespace ShipBattle
                     Console.WriteLine(" ?? ");
                 }
             }
+
+            Console.WriteLine();
+            Console.WriteLine();
         }
 
         public static void WelcomeMessage()

@@ -1,4 +1,4 @@
-After the grid displays, we need two empty lines.
+* After the grid displays, we need two empty lines.
 
 Need to display who is shooting each time.
 
